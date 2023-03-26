@@ -1,0 +1,16 @@
+- js revision
+- js adavanced topics => fetch, async, oop, promises, clousers, ......callbacks
+- node js (terminal, express js(web browser))
+- mongodb
+  => web (hbs files)
+  => api
+- typescript
+- angular
+
+20days - 9 to 3 - 1hr break, 9:15
+
+fb group
+github repo
+
+- tasks
+- final project
