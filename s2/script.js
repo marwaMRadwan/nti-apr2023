@@ -156,6 +156,15 @@ const addUser = (user)=>{
     allUsers.push(user)
     writeToStorage(allUsers, "users")
 }
+
+function createMyOwnElement (ele, parent, txt=null, classes=null){
+    const myElement = document.createElement(ele)
+    parent.appendChild(myElement)
+    if(txt) myElement.textContent=txt
+    if(classes) myElement.classList=classes
+    return myElement
+}
+
 if(myForm){
     myForm.addEventListener("submit", function(e){
         e.preventDefault()
@@ -172,9 +181,50 @@ if(myForm){
 
 if(userWrap){
     const allUsers = readFromStorage("users")
-    
+    allUsers.forEach(user=>{
+        const tr = createMyOwnElement("tr", userWrap)
+        createMyOwnElement("td", tr, user.id)
+        createMyOwnElement("td", tr, user.name)
+        createMyOwnElement("td", tr, user.email)
+        createMyOwnElement("td", tr, user.age)
+        const td = createMyOwnElement("td", tr)
+        const showBtn = createMyOwnElement("a", td, "Show","mx-2 btn btn-primary")
+        const editBtn = createMyOwnElement("a", td, "Edit","mx-2 btn btn-warning")
+        const delBtn = createMyOwnElement("a", td, "Delete","mx-2 btn btn-danger")
+        showBtn.href="#"
+        editBtn.href="#"
+        delBtn.href="#"
+        // const tr = document.createElement("tr")
+        // userWrap.appendChild(tr)
+    // let td = document.createElement("td")
+    // td.innerText=user.id
+    // tr.appendChild(td)
+    // td = document.createElement("td")
+    // td.innerText=user.name
+    // tr.appendChild(td)
+    // td = document.createElement("td")
+    // td.innerText=user.email
+    // tr.appendChild(td)
+    // td = document.createElement("td")
+    // td.innerText=user.age
+    // tr.appendChild(td)
+    // td = document.createElement("td")
+    // tr.appendChild(td)
+    // const showBtn = document.createElement("a")
+    // showBtn.textContent="show"
+    // showBtn.classList="mx-2 btn btn-primary"
+    // console.log(showBtn)
+    // td.appendChild(showBtn)
+    // const editBtn = document.createElement("a")
+    // editBtn.textContent="Edit"
+    // editBtn.classList="mx-2 btn btn-warning"
+    // td.appendChild(editBtn)
+    // const delBtn = document.createElement("a")
+    // delBtn.textContent="Delete"
+    // delBtn.classList="mx-2 btn btn-danger"
+    // td.appendChild(delBtn)
+})
 }
-
 
 
 
