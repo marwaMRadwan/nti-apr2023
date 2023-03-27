@@ -157,7 +157,12 @@ const addUser = (user)=>{
 
 myForm.addEventListener("submit", function(e){
     e.preventDefault()
+    // const user = { id:Date.now() }
+    // heads.forEach( h => user[h] = myForm.elements[h].value )
     const user = userObjCreator(myForm)
+    // const allUsers = readFromStorage("users")
+    // allUsers.push(user)
+    // writeToStorage(allUsers, "users")
     addUser(user)
     window.location = "index.html"
 })
