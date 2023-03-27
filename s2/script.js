@@ -138,6 +138,8 @@ user => name, email, age
 */
 
 const myForm = document.querySelector("#myForm")
+const userWrap = document.querySelector("#userWrap")
+
 const heads = ["name", "age", "email"]
 
 const readFromStorage = (key=`tasks`) => JSON.parse(localStorage.getItem(key)) || []
@@ -154,19 +156,24 @@ const addUser = (user)=>{
     allUsers.push(user)
     writeToStorage(allUsers, "users")
 }
+if(myForm){
+    myForm.addEventListener("submit", function(e){
+        e.preventDefault()
+        // const user = { id:Date.now() }
+        // heads.forEach( h => user[h] = myForm.elements[h].value )
+        const user = userObjCreator(myForm)
+        // const allUsers = readFromStorage("users")
+        // allUsers.push(user)
+        // writeToStorage(allUsers, "users")
+        addUser(user)
+        window.location = "index.html"
+    })  
+}
 
-myForm.addEventListener("submit", function(e){
-    e.preventDefault()
-    // const user = { id:Date.now() }
-    // heads.forEach( h => user[h] = myForm.elements[h].value )
-    const user = userObjCreator(myForm)
-    // const allUsers = readFromStorage("users")
-    // allUsers.push(user)
-    // writeToStorage(allUsers, "users")
-    addUser(user)
-    window.location = "index.html"
-})
-
+if(userWrap){
+    const allUsers = readFromStorage("users")
+    
+}
 
 
 
