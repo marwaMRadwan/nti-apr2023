@@ -1,5 +1,6 @@
 const myForm = document.querySelector("#myForm")
 const userWrap = document.querySelector("#userWrap")
+const singleData = document.querySelector("#singleData")
 
 const heads = ["name", "age", "email"]
 
@@ -34,8 +35,13 @@ if(myForm){
         window.location = "index.html"
     })  
 }
-
-if(userWrap){
+const deleteMyElement = (allUsers, i) =>{
+    allUsers.splice(i,1)
+    writeToStorage(allUsers, "users")
+    drawData()
+}
+const drawData = () =>{
+    userWrap.innerHTML=""
     const allUsers = readFromStorage("users")
     allUsers.forEach((user, i)=>{
         const tr = createMyOwnElement("tr", userWrap)
@@ -44,15 +50,27 @@ if(userWrap){
         createMyOwnElement("td", tr, user.email)
         createMyOwnElement("td", tr, user.age)
         const td = createMyOwnElement("td", tr)
+
         const delBtn = createMyOwnElement("button", td, "Delete","mx-2 btn btn-danger")
-        delBtn.addEventListener("click", (e)=>{
-            console.log(i)
-        })
+        delBtn.addEventListener("click", (e)=> deleteMyElement(allUsers, i))
         const showBtn = createMyOwnElement("button", td, "Show","mx-2 btn btn-primary")
+        showBtn.addEventListener("click", ()=>{
+            localStorage.setItem("index", i)
+            window.location="single.html"
+        })
         const editBtn = createMyOwnElement("button", td, "Edit","mx-2 btn btn-warning")
     })
 }
 
+if(userWrap){
+    drawData()
+}
+
+if(singleData){
+    const index = localStorage.getItem("index")
+  const allUsers= readFromStorage("users")
+  createMyOwnElement("p", singleData, allUsers[index].name)  
+}
 
 
 
