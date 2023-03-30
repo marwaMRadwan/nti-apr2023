@@ -1,0 +1,16 @@
+crud App
+- create
+- read
+- update
+- delete
+
+=> users (id, name, email, age)
+=> adduser
+=> show all users
+=> show single users
+=> del users
+=> edit users
+=> del all users
+users.json
+
+module, main file, validator , fs, yargs

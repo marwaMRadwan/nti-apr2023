@@ -1,0 +1,17 @@
+{
+  "name": "s5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "validator": "^13.9.0",
+    "yargs": "^17.7.1"
+  }
+}
