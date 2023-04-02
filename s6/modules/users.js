@@ -42,8 +42,21 @@ class User{
         allUsers.splice(ind,1)
         deal.writeJsonData("users.json", allUsers)
     }
+
+static editUser=(argv)=>{
+    const allUsers = deal.readJsonData("users.json")
+    const ind = allUsers.findIndex(u => u.id == argv.id)
+    if(ind==-1){
+        console.log("user not found");
+        return
+    }
+    for (const key in argv) {
+        // if(key!="_" && key!="$0" && key!="id")
+        if(userHeads.includes(key))
+            allUsers[ind][key] = argv[key]
+    }
+// console.log(allUsers[ind]);
+deal.writeJsonData("users.json", allUsers)
 }
-const editUser=(argv)=>{
-    
 }
 module.exports = User

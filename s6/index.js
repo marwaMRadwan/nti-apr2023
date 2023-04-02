@@ -33,6 +33,7 @@ yargs.command({
 yargs.command({
     command:"edit",
     builder:{
+        id:{ demandOption: true},
         name:{ demandOption: false},
         age:{ demandOption: false},
         email:{demandOption:false}
