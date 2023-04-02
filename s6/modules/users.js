@@ -43,4 +43,7 @@ class User{
         deal.writeJsonData("users.json", allUsers)
     }
 }
+const editUser=(argv)=>{
+    
+}
 module.exports = User

@@ -31,7 +31,14 @@ yargs.command({
     handler: (argv)=> user.delSingle(argv)
 })
 yargs.command({
-    command:"edit"
+    command:"edit",
+    builder:{
+        name:{ demandOption: false},
+        age:{ demandOption: false},
+        email:{demandOption:false}
+    },
+    handler : (argv) => user.editUser(argv)
+
 })
 
 yargs.argv
