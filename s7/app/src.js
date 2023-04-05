@@ -10,8 +10,9 @@ app.use(express.static(myStaticDir))
 app.set("view engine", "hbs")
 app.set("views", myViewsDir)
 hbs.registerPartials(myPartialDir)
-
+app.use(express.urlencoded({extended:true}))
 const userRoutes = require("./routes/user.routes")
+const exp = require("constants")
 app.use(userRoutes)
 app.all("*", (req,res)=> res.render("err404", { pageTitle:"Error in page"} ) )
 module.exports = app
