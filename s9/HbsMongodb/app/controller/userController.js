@@ -1,5 +1,6 @@
 const deal = require("../helper/dealWithJson")
 const connectDb = require("../../models/dbConnect")
+const ObjectId = require("mongodb").ObjectId
 const fileName = "models/users.json"
 class User{
     static add = (req,res)=>{
@@ -52,15 +53,42 @@ class User{
             res.send(e)
         }
     }
-    
-    static edit = (req,res)=>{
-        const id = req.params.id
-        const allUsers=deal.readJsonData(fileName)
-        const user = allUsers.find(u=> u.id == id)
-        res.render("edit", {
-            pageTitle:"Edit Data Data",
-            user
-        })
+
+    static single =  async(req,res)=>{
+        try{
+            connectDb(async(db)=>{
+                const user = await db.collection("users").findOne({
+                    _id: new ObjectId(req.params.id)
+                })
+                res.render("single", {
+                    pageTitle:"Single Data",
+                    user
+                })
+                
+            })
+        }
+        catch(e){
+            res.send(e)
+        }
+    }
+
+
+    static edit = async(req,res)=>{
+        try{
+            connectDb(async(db)=>{
+                const user = await db.collection("users").findOne({
+                    _id: new ObjectId(req.params.id)
+                })
+                res.render("edit", {
+                    pageTitle:"Single Data",
+                    user
+                })
+                
+            })
+        }
+        catch(e){
+            res.send(e)
+        }
     }
     static editLogic = (req,res)=>{
         const id = req.params.id
@@ -70,26 +98,26 @@ class User{
         deal.writeJsonData(fileName, allUsers)
         res.redirect(`/single/${id}`)
     }
-    static single =  (req,res)=>{
-        // res.send(req.params)
-        const id = req.params.id
-        const allUsers=deal.readJsonData(fileName)
-        const user = allUsers.find(u=> u.id == id)
-        res.render("single", {
-            pageTitle:"Single Data",
-            user
-        })
+    static del = async(req,res)=>{
+        try{
+            connectDb( async(db) => 
+                await db.collection("users")
+                .deleteOne({_id: new ObjectId(req.params.id)}) 
+                )
+            res.redirect("/")
+        }
+        catch(e){
+            res.send(e)
+        }
     }
-    static del = (req,res)=>{
-        let allUsers=deal.readJsonData(fileName)
-        const id = req.params.id
-        allUsers = allUsers.filter(u=> u.id != id)
-        deal.writeJsonData(fileName, allUsers)
-        res.redirect("/")
-    }
-    static delAll = (req,res)=>{
-        deal.writeJsonData(fileName, [])
-        res.redirect("/")
+    static delAll = async(req,res)=>{
+        try{
+            connectDb( async(db) => await db.collection("users").remove() )
+            res.redirect("/")
+        }
+        catch(e){
+            res.send(e)
+        }
     }
 }
 module.exports = User
