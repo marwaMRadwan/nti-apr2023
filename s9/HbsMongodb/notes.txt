@@ -1,0 +1,8 @@
+todo app
+- add task => id, title, content, status(true, false=> default), due date
+- show all
+- single
+- edit
+- activate
+- delete
+- search

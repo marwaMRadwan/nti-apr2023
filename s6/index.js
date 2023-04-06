@@ -1,45 +1,30 @@
-const yargs = require("yargs")
-const user = require("./modules/users")
-
-yargs.command({
-    command:"addUser",
-    builder:{
-        name:{ demandOption: true},
-        age:{ demandOption: true},
-        email:{demandOption:true}
-    },
-    handler : (argv) => user.addUser(argv)
+/*
+npm init --y
+npm i express
+npm i nodemon -g
+*/
+const express = require("express")
+const app = express()
+const PORT = 3000
+//routes routing
+app.get("/", ( req, res )=>{
+    res.send("hello world")
 })
-
-yargs.command({
-    command:"showAll",
-    handler : ()=> user.showAll()
+app.get("/add", (req,res)=>{
+    res.send("<h3>hello</h3>")
 })
-
-yargs.command({
-    command:"showSingle",
-    builder:{ id:{demandOption:true}},
-    handler: (argv)=> user.showSingle(argv)
+app.get("/about", (req,res)=>{
+    res.send({name:"marwa"});
 })
-yargs.command({
-    command:"delAll",
-    handler:()=> user.delAll()
+app.get("/logo", (req,res)=>{
+    // __dirname
+    res.sendFile(`${__dirname}/logo.png`)
 })
-yargs.command({
-    command:"delSingle",
-    builder:{ id:{demandOption:true}},
-    handler: (argv)=> user.delSingle(argv)
+app.get("/html", (req,res)=>{
+    // __dirname
+    res.sendFile(`${__dirname}/a.html`)
 })
-yargs.command({
-    command:"edit",
-    builder:{
-        id:{ demandOption: true},
-        name:{ demandOption: false},
-        age:{ demandOption: false},
-        email:{demandOption:false}
-    },
-    handler : (argv) => user.editUser(argv)
-
-})
-
-yargs.argv
+app.listen(
+    PORT, 
+    () => console.log(`you are on http://localhost:${PORT}`)
+)

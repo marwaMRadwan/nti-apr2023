@@ -1,5 +1,5 @@
 {
-  "name": "s6",
+  "name": "yargsapp",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "yargs": "^17.7.1"
   }
 }

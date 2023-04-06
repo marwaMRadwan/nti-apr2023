@@ -1,7 +1,7 @@
 //npm i mongodb@4.14
 // const mongodb = require("mongodb")
 // const MongoClient = mongodb.MongoClient
-const MongoClient=require("mongodb").MongoClient
+const { MongoClient, ObjectId }=require("mongodb")
 const dbURL = "mongodb://127.0.0.1:27017"
 const dbName = "s9"
 const todos = [
@@ -162,5 +162,14 @@ MongoClient.connect(dbURL, async(err, client) => {
     //     console.log(e)
     //     client.close()
     // }
-    
+    try{
+        const res = await db.collection("todo")
+        .findOne({_id:new ObjectId("642ea3dd6e8aa367daee59ad")})
+        console.log(res)
+        client.close()
+    }
+    catch(e){
+        console.log(e)
+        client.close()
+    }
 })
