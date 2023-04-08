@@ -1,0 +1,21 @@
+{{>header}}
+{{>nav}}
+<section class="container my-5">
+    <h2>Add User</h2>
+    <form action="/editLogic/{{user.id}}">
+        <div class="mb-3">
+            <input name="name" class="form-control" placeholder="name" value="{{user.name}}">
+        </div>
+        <div class="mb-3">
+            <input name="age" class="form-control" placeholder="age" value="{{user.age}}">
+        </div>
+        <div class="mb-3">
+            <input name="email" class="form-control" placeholder="email" value="{{user.email}}">
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-primary">Add</button>
+        </div>
+    </form>
+</section>
+
+{{>footer}}
