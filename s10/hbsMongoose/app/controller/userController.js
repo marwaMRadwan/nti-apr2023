@@ -24,58 +24,85 @@ class User{
         })
     }
     
-    static addPostLogic = (req,res)=>{
-        const allUsers = deal.readJsonData(fileName)
-        const newUser = {id: Date.now(), ...req.body}
-        // res.send(newUser)
-        allUsers.push(newUser)
-        deal.writeJsonData(fileName, allUsers)
-        res.redirect("/")
+    static addPostLogic = async(req,res)=>{
+        try{
+            const data = new userModel(req.body)
+            await data.save()
+            res.redirect("/")
+        }
+        catch(e){
+            res.send(e)
+        }
     }
+    static all = async(req,res)=>{
+        try{
+            const allUsers = await userModel.find()
+            res.render("all", {
+                pageTitle:"All Data", 
+                allUsers,
+                hasData: allUsers.length
+            })    
+        }
+        catch(e){
+            res.send(e.message)
+        }
+    }
+    static edit =  async(req,res)=>{
+        try{
+            const user = await userModel.findById(req.params.id)
+            res.render("edit", {
+                pageTitle:"Edit Data",
+                user
+            })
+        }
+        catch(e){
+            res.send(e.message)
+        }
+        }
+    static editLogic = async(req,res)=>{
+        try{
+            const id = req.params.id
+            await userModel.findByIdAndUpdate(id, req.query, {runValidators:true})
+            res.redirect(`/single/${id}`)
+        }
+        catch(e){
+            res.send(e.message)
+        }
+    }
+    static single =  async(req,res)=>{
+try{
+    const user = await userModel.findById(req.params.id)
+    res.render("single", {
+        pageTitle:"Single Data",
+        user
+    })
+}
+catch(e){
+    res.send(e.message)
+}
+}
 
-    static all = (req,res)=>{
-        const allUsers = deal.readJsonData(fileName)
-        res.render("all", {
-            pageTitle:"All Data", 
-            allUsers,
-            hasData: allUsers.length
-        })
-
-        // res.send(allUsers)
-    }
-    static edit = (req,res)=>{
-        const id = req.params.id
-        const allUsers=deal.readJsonData(fileName)
-        const user = allUsers.find(u=> u.id == id)
-        res.render("edit", {
-            pageTitle:"Edit Data Data",
-            user
-        })
-    }
-    static editLogic = (req,res)=>{
-        const id = req.params.id
-        const allUsers=deal.readJsonData(fileName)
-        const index = allUsers.findIndex(u=> u.id == id)
-        allUsers[index] = {id, ...req.query}
-        deal.writeJsonData(fileName, allUsers)
-        res.redirect(`/single/${id}`)
-    }
-    static single =  (req,res)=>{
-        // res.send(req.params)
-        const id = req.params.id
-        const allUsers=deal.readJsonData(fileName)
-        const user = allUsers.find(u=> u.id == id)
-        res.render("single", {
-            pageTitle:"Single Data",
-            user
-        })
-    }
-    static del = (req,res)=>{
-        let allUsers=deal.readJsonData(fileName)
-        const id = req.params.id
-        allUsers = allUsers.filter(u=> u.id != id)
-        deal.writeJsonData(fileName, allUsers)
-        res.redirect("/")
+    static single =  async(req,res)=>{
+        try{
+            const user = await userModel.findOne({_id:req.params.id, name:"marwa"})
+            res.render("single", {
+                pageTitle:"Single Data",
+                user
+            })
+        }
+        catch(e){
+            res.send(e.message)
+        }
+    }    
+    static del = async(req,res)=>{
+        try{
+            const d = await userModel.findByIdAndRemove(req.params.id)
+            console.log(d)
+            res.redirect("/")
+        }
+        catch(e){
+            res.send(e.message)
+        }
     }
     static delAll = (req,res)=>{
         deal.writeJsonData(fileName, [])
@@ -83,3 +110,4 @@ class User{
     }
 }
 module.exports = User
+
