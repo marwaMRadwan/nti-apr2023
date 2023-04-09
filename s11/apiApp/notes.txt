@@ -1,0 +1,21 @@
+api
+users
+=> fname, lname, age, email, password, status, image, gender, dOfBirth, phone, addresses"[
+    {addrName, addrDetails}], created at, updated at
+    ===> register
+    ===> view all
+    ===> view single
+    ===> edit
+    ===> del all
+    ===> del one
+    ===> activate
+    ===> login
+    ===> profile
+    ===> logout
+    ===> logout all
+    ===> add addresses
+    ===> show all
+    ===> edit addresses
+    ===> add profile image
+tasks
+=> type, title, content, file, userId
