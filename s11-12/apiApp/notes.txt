@@ -3,12 +3,12 @@ users
 => fname, lname, age, email, password, status, image, 
     gender, dOfBirth, phone, addresses"[
     {addrName, addrDetails}], created at, updated at
-    ===> register
-    ===> view all
-    ===> view single
-    ===> edit
-    ===> del all
-    ===> del one
+    ===> register ===
+    ===> view all ====
+    ===> view single ===
+    ===> del one ===
+    ===> del all ====
+    ===> edit ===
     ===> activate
     ===> login
     ===> profile

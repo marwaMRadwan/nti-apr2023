@@ -1,5 +1,6 @@
 const mongoose = require("mongoose")
 const validator = require("validator")
+const bcrypt = require("bcrypt")
 const userSchema = mongoose.Schema({
     fname:{
         type:String,
@@ -83,5 +84,18 @@ const userSchema = mongoose.Schema({
 },{
     timestamps:true
 })
+
+userSchema.pre("save", async function(){
+    if(this.isModified("password"))
+        this.password = await bcrypt.hash(this.password, 12)
+})
+userSchema.statics.loginMe = async (email, password) => {
+    const userData = await userModel.findOne( { email } )
+    if(!userData) throw new Error ("invalid email")
+    const matched = await bcrypt.compare(password, userData.password)
+    if(!matched) throw new Error ("invalid password")
+    return userData
+}
+
 const userModel = mongoose.model("User", userSchema)
 module.exports = userModel
