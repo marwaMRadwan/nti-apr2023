@@ -14,4 +14,7 @@ router.patch("/single/:id", userController.editSingle)
 router.post("/login", userController.login)
 
 router.get("/me", auth, userController.profile)
+router.post("/logoutAll", auth, userController.logOutAll)
+
+router.post("/logout", auth, userController.logOut)
 module.exports = router

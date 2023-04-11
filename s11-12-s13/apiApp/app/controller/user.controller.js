@@ -85,5 +85,26 @@ class User{
     static profile = async (req,res)=>{
         Helper.resHandler(res, 200, true, req.user, "fdxd")
     }
+    static logOut = async(req,res)=>{
+        try{
+            req.user.tokens = req.user.tokens.filter(t => t.token != req.token )
+            await req.user.save()
+            Helper.resHandler(res, 200, true, {}, "logged out")
+        }
+        catch(e){
+            Helper.resHandler(res, 500, false, e.message, "Error featch data")
+        }
+    }
+    static logOutAll = async(req,res)=>{
+        try{
+            req.user.tokens = []
+            await req.user.save()
+            Helper.resHandler(res, 200, true, req.user, "logged out")
+        }
+        catch(e){
+            Helper.resHandler(res, 500, false, e.message, "Error featch data")
+        }
+    }
+
 }
 module.exports=User
