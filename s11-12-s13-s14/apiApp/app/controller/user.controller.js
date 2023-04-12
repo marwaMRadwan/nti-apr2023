@@ -109,10 +109,11 @@ class User{
     }
     static updatePimg = async(req,res)=>{
         try{
-            const fs = require("fs")
-            const ext = req.file.originalname.split(".").pop()
-            const newName = req.file.path+"."+ext
-            fs.renameSync(req.file.path, newName)
+            // const fs = require("fs")
+            // const ext = req.file.originalname.split(".").pop()
+            // const newName = req.file.path+"."+ext
+            // fs.renameSync(req.file.path, newName)
+            const ext = Helper.fileHandler(req)
             req.user.image = `${process.env.APPUrl}${req.file.filename}.${ext}`
             await req.user.save()
             Helper.resHandler(res, 200, true, req.user, "done")
