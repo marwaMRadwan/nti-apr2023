@@ -1,0 +1,11 @@
+Angular cli ==> npm install -g @angular/cli
+create Angylar App ==> ng new appName
+vs code terminal ==> ng serve -o
+create component ==> ng g c shared/navbar  ==> g = generate /// c = component
+
+-- Data Binding ==> one way binding 
+                    Two Way binding
+
+-- one way binding ==> {{interpolation}} 
+                       property Binding ==> [attributes]    
+                       Event Binding ==> (event)               
