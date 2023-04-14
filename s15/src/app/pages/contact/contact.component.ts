@@ -6,7 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
+  counter = 0
 
+  inputValue:any
+
+  obj={
+    name:'',
+    email:''
+  }
 
   handleKeyUp(eve :any){
     console.log(eve.target.value)
@@ -15,6 +22,20 @@ export class ContactComponent {
 
   handleInput(element:any){
     console.log(element.value)
+  }
+
+  handleCounter(flag:string){
+    (flag == 'decrement') ? this.counter-- : this.counter++
+  }
+
+  handleValue(even :any){
+    this.inputValue = even.target.value
+
+    console.log(this.inputValue)
+  }
+
+  handleClick(){
+    console.log(this.obj)
   }
 
   // let input = document.getElementById('input')

@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row mt-4 gy-4">
+        <div class="col-12">
+            <input type="text" placeholder="Search ..." (input)="handleSearch()">
+        </div>
+
+        <div class="col-12 col-md-4" *ngFor="let item of postsArr ; let firstItem = first
+        let lastItem = last ; let i = index ; let evenItem = even ; let oddItem = odd ; let total = count">
+            <div class="card" [ngClass]="{'bg-primary' : evenItem , 'bg-danger' : lastItem }">
+                <div class="card-body">
+                    <p>First item = {{firstItem}}</p>
+                    <p>last item = {{lastItem}}</p>
+                    <p>even item = {{evenItem}}</p>
+                    <p>odd item = {{oddItem}}</p>
+                    <p>total item = {{total}}</p>
+                    <p>index  = {{i}}</p>
+                    <h3>{{item.title}} </h3>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

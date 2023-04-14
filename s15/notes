@@ -8,4 +8,8 @@ create component ==> ng g c shared/navbar  ==> g = generate /// c = component
 
 -- one way binding ==> {{interpolation}} 
                        property Binding ==> [attributes]    
-                       Event Binding ==> (event)               
+                       Event Binding ==> (event)    
+
+-- two way binding ==> [] + () = [(ngModel)]    
+
+-- directives ==> *ngFor

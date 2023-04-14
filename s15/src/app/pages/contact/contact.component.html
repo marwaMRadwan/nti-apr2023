@@ -4,6 +4,16 @@
 
 
 
-<button class="btn btn-primary"> - </button>
-<h2 class="mx-3 d-inline-block">0</h2>
-<button class="btn btn-primary">+</button>
+<button class="btn btn-primary" (click)="handleCounter('decrement')" > - </button>
+<h2 class="mx-3 d-inline-block">{{counter}}</h2>
+<button class="btn btn-primary"  (click)="handleCounter('increment')">+</button>
+
+
+<input type="text" (keyup)="handleValue($event)">
+
+<input type="text" class="form-control" [(ngModel)]="obj.name" placeholder="name">
+<input type="email" class="form-control" [(ngModel)]="obj.email" placeholder="email">
+
+
+
+<button class="btn btn-primary" (click)="handleClick()">check Input</button>
