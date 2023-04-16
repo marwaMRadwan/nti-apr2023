@@ -1,0 +1,57 @@
+<!--------------------------------- *ngIf  ----------------------------->
+<!-- <div class="container">
+    <div *ngIf="divFlag ; else Data ">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, corrupti?</p>
+    </div>
+  <ng-template #Data>
+    <div>
+        Another Div
+    </div>
+  </ng-template> 
+  <button class="btn btn-primary" (click)="divFlag = true">show Div</button>
+  <button class="btn btn-primary" (click)="divFlag = !divFlag">Toggle Div</button>
+  <div class="alert alert-danger" *ngIf="arr.length > 1; then trueCondition ; else falseCondition "></div>
+  <ng-template #trueCondition>
+    <div class="alert alert-primary">
+        true Condition
+    </div>
+  </ng-template>
+  <ng-template #falseCondition>
+    <div class="alert alert-primary">
+        False Condition
+    </div>
+  </ng-template>
+
+</div> -->
+
+
+<!---------------------- ngSwitch  --------------------->
+
+<div class="container">
+    <div [ngSwitch]="num">
+        <ng-container *ngFor="let item of numArray">
+            <div *ngSwitchCase="item" > number = {{item}}</div>
+        </ng-container>
+        <!-- <div *ngSwitchCase="'2'"> number = 2</div>
+        <div *ngSwitchCase="'3'"> number = 3</div>
+        <div *ngSwitchCase="'4'" > number = 4</div> -->
+
+        <div *ngSwitchDefault>
+            invalid number
+        </div>
+    </div>
+</div>
+
+<!---------------------- ngStyle & ngClass  --------------------->
+
+<h2 [ngClass]="{'bg-warning' : classFlag , 'border' : true}">Lorem ipsum dolor sit amet.</h2>
+<h2 [ngClass]="[class1 , class2]">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus, nihil.</h2>
+<h2 [ngClass]="(numArray.length > 20) ? 'bg-info' : 'bg-secondary'">Lorem ipsum dolor sit amet.</h2>
+<h2 [ngClass]="class1">Lorem ipsum dolor sit amet.</h2>
+
+<button class="btn btn-danger"
+ (click)="class1 = 'bg-dark' ; textBlue = 'green' ; handleClick() ">Change Bg color</button>
+
+<!-- <h3 style="color:maroon">Lorem ipsum dolor sit.</h3> -->
+<h3 [ngStyle]="{'color' : textBlue , 'border' : '2px solid red'}">Angular </h3>
+<h3 [ngStyle]="{'background' : arr.length > 4 ? 'lightgray' : 'gold' }" >Angular</h3>

@@ -1,0 +1,20 @@
+<div class="container">
+    <app-user-form  (sendingUserData)="handleUser($event)"></app-user-form>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users ; let i = index">
+                <td>{{user.userName}}</td>
+                <td>{{user.email}}</td>
+                <td><button class="btn btn-danger">Delete User</button></td>
+                <td><button class="btn btn-primary">Edit User Email</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container">
+      <a class="navbar-brand">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link " routerLink="" aria-current="page"  routerLinkActive="text-red"
+            [routerLinkActiveOptions]="{'exact' : true} ">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="posts" routerLinkActive="text-danger"
+            [routerLinkActiveOptions]="{'exact' : true} ">Posts items</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="blogs" routerLinkActive="text-danger">Blogs items</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="products" routerLinkActive="text-danger">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " routerLink="users" routerLinkActive="text-danger">Users</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " routerLink="users-list" routerLinkActive="text-danger">Users list</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
