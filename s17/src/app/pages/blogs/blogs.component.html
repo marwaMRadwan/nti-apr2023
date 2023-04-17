@@ -1,0 +1,16 @@
+
+<h4>{{currentDate | date : 'shortDate'}}</h4>
+<h4>{{currentDate | date : 'yyyy-MMM-dd'}}</h4>
+
+<h3>{{text | uppercase}}</h3>
+
+<h3>{{'ANGULAR' | lowercase}}</h3>
+
+<h4>{{'200' | currency}}</h4>
+
+{{obj | json}}
+
+<h4>{{'Angular' | slice : 1 : 3}}</h4>
+
+<h4 class="text-danger" *ngFor="let item of users | slice : 0 : 5">{{item.name}}</h4>
+

@@ -1,0 +1,11 @@
+<div class="row mt-4">
+    <div class="col-12 col-md-4" *ngFor="let item of posts | slice : 0: 10">
+        <div class="card">
+            <div class="card-body">
+                <h3>{{item.title}}</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <h1>{{global.AppTitle}}</h1> -->

@@ -15,6 +15,9 @@ import { UserFormComponent } from './components/user-form/user-form.component';
 import { UsersComponent } from './pages/users/users.component';
 import { SinglePostComponent } from './pages/single-post/single-post.component';
 import { ErrorpageComponent } from './pages/errorpage/errorpage.component';
+import { LoginComponent } from './dashboard/pages/login/login.component';
+import { AddFormComponent } from './dashboard/components/add-form/add-form.component';
+import { SidebarComponent } from './dashboard/shared/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { ErrorpageComponent } from './pages/errorpage/errorpage.component';
     UserFormComponent,
     UsersComponent,
     SinglePostComponent,
-    ErrorpageComponent
+    ErrorpageComponent,
+    LoginComponent,
+    AddFormComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
