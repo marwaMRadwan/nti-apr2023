@@ -1,1 +1,12 @@
-<p>single-post works!</p>
+<div class="row">
+    <div class="col-8">
+        <div class="alert alert-info">
+            <h2>{{singlePost?.title}}</h2>
+            <p>{{singlePost?.body}}</p>
+        </div>
+    </div>
+    <div class="col-4">
+        <h3>Latest posts</h3>
+        <div class="alert alert-info" *ngFor="let item of posts | slice : -3" routerLink="/posts/{{item.id}}">{{item.title}}</div>
+    </div>
+</div>

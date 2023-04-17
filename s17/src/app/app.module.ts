@@ -10,6 +10,7 @@ import { GalleryComponent } from './pages/gallery/gallery.component';
 import { PostsComponent } from './pages/posts/posts.component';
 import { SinglePostComponent } from './pages/single-post/single-post.component';
 import { BlogsComponent } from './pages/blogs/blogs.component';
+import { AddPostComponent } from './pages/add-post/add-post.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { BlogsComponent } from './pages/blogs/blogs.component';
     GalleryComponent,
     PostsComponent,
     SinglePostComponent,
-    BlogsComponent
+    BlogsComponent,
+    AddPostComponent
   ],
   imports: [
     BrowserModule,
