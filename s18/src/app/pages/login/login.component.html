@@ -1,0 +1,67 @@
+<!-- Template-driven form (ngModel)-->
+<!-- formGroup ==> formControl -->
+<div class="alert alert-danger" *ngIf="msgError">
+    {{msgError}}
+</div>
+
+<form #loginform="ngForm" (ngSubmit)="handleSubmit(loginform)" >
+    <!-- <div class="alert alert-primary">
+        <h5>values : {{loginform.value | json }}</h5>
+        <h5>touched : {{loginform.touched }}</h5>
+        <h5>valid : {{loginform.valid }}</h5>
+        <h5>invalid : {{loginform.invalid }}</h5>
+        <h5>submit : {{loginform.submitted }}</h5>
+    </div> -->
+    <div class="row gy-4 mt-4">
+        <div class="col-12 col-6">
+            <input type="email" placeholder="enter Email" class="form-control"
+             [(ngModel)]="model.email" name="email" #email="ngModel" required email minlength="5">
+             <!-- <div class="alert alert-danger">
+              <h6>{{email.errors | json}} </h6> 
+              <h6>touched : {{email.touched}} </h6> 
+              <h6>valid :{{email.valid}} </h6> 
+              <h6>invalid :{{email.invalid}} </h6> 
+              <h6>dirty :{{email.dirty}} </h6> 
+             </div> -->
+             <div class="alert alert-danger" *ngIf="loginform.submitted && email.invalid">
+                <div *ngIf="email.errors?.['required']">Email is required</div>
+                <div *ngIf="email.errors?.['email']">Invalid Email</div>
+                <div *ngIf="email.errors?.['minlength']">min length = 5</div>
+             </div>
+        </div>
+
+        <div class="col-12 col-6">
+            <input type="password" placeholder="enter password" class="form-control"
+            [(ngModel)]="model.password" name="password" #password="ngModel"
+             required (input)="msgError = null" >
+            <div class="alert alert-danger" *ngIf="password.invalid && (password.dirty || loginform.submitted )">
+                <div *ngIf="password.errors?.['required']">password is required</div>
+            </div>
+        </div>
+
+        <!------------ Password with pattern -------------->
+        <!-- <div class="col-12 col-6">
+            <input type="password" placeholder="enter password" class="form-control"
+            [(ngModel)]="model.password" name="password" #password="ngModel"
+             required  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+            <div class="alert alert-danger" *ngIf="password.invalid && (password.dirty || loginform.submitted )">
+                <div *ngIf="password.errors?.['required']">password is required</div>
+                <div *ngIf="password.errors?.['pattern']">Match the pattern</div>
+            </div>
+        </div> -->
+
+        <!--------------------- Address Oject -------------------------------->
+        <!-- <div ngModelGroup="address">
+            <div class="col-12 col-md-4">
+                <input type="text" placeholder="city" name="city" ngModel>
+            </div>
+            <div class="col-12 col-md-4">
+                <input type="text" placeholder="country" name="country" ngModel >
+            </div>
+        </div> -->
+
+        <div class="col-12 col-6">
+            <button class="btn btn-primary">login</button>
+        </div>
+    </div>
+</form>
