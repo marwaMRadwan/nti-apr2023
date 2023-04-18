@@ -1,0 +1,16 @@
+<div class="row justify-content-center">
+    <div class="col-4" *ngIf="loadingFlag ; else ShowGallery">
+        <img src="assets/images/loading.gif" class="w-100">
+    </div>
+    <ng-template #ShowGallery>
+        <div class="col-12 col-md-4" *ngFor="let item of photos">
+            <div class="card">
+                <!-- <img src="{{item.url}}" alt="" class="card-top-img"> -->
+                <img [src]="item.url" alt="" class="card-top-img">
+                <div class="card-body">
+                    <h3>{{item.title}}</h3>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</div>
