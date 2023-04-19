@@ -9,6 +9,9 @@ import { GlobalService } from 'src/app/services/global.service';
 export class UpdateImageComponent {
 
   image : any
+  model={
+    firstName:''
+  }
   constructor(private global : GlobalService){}
   handleChange(eve :any){
     console.log(eve)
@@ -18,7 +21,8 @@ export class UpdateImageComponent {
   handleSubmit(){
     let formData = new FormData()
     formData.append('image' , this.image)
-    // formData.append('firstName' , 'Nouran')
+    formData.append('firstName' , this.model.firstName)
+    formData.append('lastName' , 'Ahmed')
 
     this.global.updateImage(formData).subscribe(data=>{
       console.log(data)

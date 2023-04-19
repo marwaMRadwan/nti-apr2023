@@ -11,6 +11,8 @@ import { IndexComponent } from './pages/index/index.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { UpdateImageComponent } from './pages/update-image/update-image.component';
+import { ProfileComponent } from './dashboard/profile/profile.component';
+import { NavbarDashboardComponent } from './dashboard/shared/navbar-dashboard/navbar-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { UpdateImageComponent } from './pages/update-image/update-image.componen
     GalleryComponent,
     IndexComponent,
     LoginComponent,
-    UpdateImageComponent
+    UpdateImageComponent,
+    ProfileComponent,
+    NavbarDashboardComponent
   ],
   imports: [
     BrowserModule,

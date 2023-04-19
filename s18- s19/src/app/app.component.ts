@@ -9,7 +9,7 @@ import { GlobalService } from './services/global.service';
 export class AppComponent {
   title = 's18';
 
-  constructor(private global: GlobalService){
+  constructor(public global: GlobalService){
     let token = localStorage.getItem('token')
     if(token){
       global.isLogin = true

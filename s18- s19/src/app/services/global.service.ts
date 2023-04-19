@@ -11,14 +11,21 @@ export class GlobalService {
 
   baseUrl = "http://match.techsexperts.info/public/api/"
   isLogin = false
+  navbarFlag = true
   
   getGallery():Observable<any>{
     return this.http.get('https://jsonplaceholder.typicode.com/photos?_limit=10')
 
   }
 
-  login(data: any):Observable<any>{
+  // customer@hotmail.com
+  AdminLogin(data: any):Observable<any>{
     return this.http.post(`${this.baseUrl}client/customer_login` , data)
+  }
+
+  // Nouran@gmail.com
+  userLogin(obj:any) :  Observable<any>{
+    return this.http.post(`${this.baseUrl}login` , obj)
   }
 
   updateImage(obj:any):Observable<any>{

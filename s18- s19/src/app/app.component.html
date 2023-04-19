@@ -1,6 +1,7 @@
 
 <!-- <i class="fa-solid fa-house"></i> -->
-<app-navbar></app-navbar>
+<app-navbar *ngIf="global.navbarFlag"></app-navbar>
+<app-navbar-dashboard *ngIf="!global.navbarFlag"></app-navbar-dashboard>
 <div class="container">
   <router-outlet></router-outlet>
 </div>
