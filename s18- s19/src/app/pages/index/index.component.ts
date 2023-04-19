@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GlobalService } from 'src/app/services/global.service';
 
 @Component({
   selector: 'app-index',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class IndexComponent {
 
+  constructor(private global : GlobalService){
+    this.global.getProfile().subscribe(res=>{
+      console.log(res)
+    })
+  }
 }

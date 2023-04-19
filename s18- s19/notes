@@ -1,0 +1,9 @@
+- directives (nFor , ngIf , ngSwitch)
+- component Communication ==> input , output
+- services (dependency injection)
+- parameter routes 
+- Activated routes
+- pipes
+- template driven form with validation
+- interceptor
+- subscribe (3 callback function) ==> response , error , complete

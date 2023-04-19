@@ -13,7 +13,10 @@
             <a class="nav-link" routerLink="gallery" >gallery</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="login" >login</a>
+            <a class="nav-link" routerLink="login" *ngIf="!global.isLogin">login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="global.isLogin" (click)="handleClick()">Logout</a>
           </li>
           <li class="nav-item">
             <a class="nav-link disabled">Disabled</a>

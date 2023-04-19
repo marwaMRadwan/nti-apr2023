@@ -35,6 +35,8 @@ export class LoginComponent {
       this.global.login(this.model).subscribe(res=>{
         console.log(res)
 
+        localStorage.setItem('token' , res.data.token)
+        this.global.isLogin = true
         if(res.status) this.router.navigateByUrl('/gallery')
 
       }, (e)=>{
@@ -43,4 +45,6 @@ export class LoginComponent {
       })
     }
   }
+ 
+
 }
