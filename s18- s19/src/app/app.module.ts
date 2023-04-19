@@ -10,6 +10,7 @@ import { GalleryComponent } from './pages/gallery/gallery.component';
 import { IndexComponent } from './pages/index/index.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
+import { UpdateImageComponent } from './pages/update-image/update-image.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AuthInterceptor } from './interceptor/auth.interceptor';
     NavbarComponent,
     GalleryComponent,
     IndexComponent,
-    LoginComponent
+    LoginComponent,
+    UpdateImageComponent
   ],
   imports: [
     BrowserModule,

@@ -32,4 +32,8 @@ export class GlobalService {
     return this.http.get(`${this.baseUrl}client/profile `)
   }
 
+  uploadUserImage(obj:any):Observable<any>{
+    return this.http.post(`${this.baseUrl}client/update-profile-image` , obj)
+  }
+
 }

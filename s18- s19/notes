@@ -6,4 +6,4 @@
 - pipes
 - template driven form with validation
 - interceptor
-- subscribe (3 callback function) ==> response , error , complete
+- subscribe (3 callback function) ==> next , error , complete
