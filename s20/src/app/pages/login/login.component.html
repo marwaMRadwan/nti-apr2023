@@ -1,0 +1,27 @@
+<!-- Reactive Form -->
+<!-- FormGroup , FormControl -->
+
+<form class="row" [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
+    <div class="col-12 col-md-4">
+        <input type="email" class="form-control" placeholder="Email" formControlName="email">
+        <!-- <input type="text" required email minlength="10" [(ngModel)]="model.email" name="email" #email="ngModel"> -->
+        <div class="alert alert-danger" *ngIf="isSubmit && userEmail?.invalid">
+            <!-- <h5>error : {{userEmail?.errors | json}}</h5>
+            <h5>valid : {{userEmail?.valid}}</h5>
+            <h5>invalid : {{userEmail?.invalid}}</h5>
+            <h5>dirty : {{userEmail?.dirty}}</h5>
+            <h5>touched : {{userEmail?.touched}}</h5> -->
+            <div *ngIf="userEmail?.errors?.['required']">email is required</div>
+            <div *ngIf="userEmail?.errors?.['email']">invalid email</div>
+        </div>
+    </div>
+    <div class="col-12 col-md-4">
+        <input type="password" class="form-control" placeholder="password" formControlName="password">
+        <div class="alert alert-danger" *ngIf="isSubmit && userData?.['password']?.invalid">
+            <div *ngIf="userData?.['password']?.errors?.['required']">password is required</div>
+        </div>
+    </div>
+    <div class="col-12 col-md-4">
+        <button class="btn btn-primary">Login</button>
+    </div>
+</form>

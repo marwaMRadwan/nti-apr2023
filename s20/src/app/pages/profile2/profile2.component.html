@@ -1,0 +1,15 @@
+<form class="row" #loginForm="ngForm" >
+    <div class="col-12 col-md-6">
+        <label >First Name</label>
+        <input type="text" class="form-control"name="customer_first_name" [(ngModel)]="model.customer_first_name">
+    </div>
+    <div class="col-12 col-md-6">
+        <label >Last Name</label>
+        <input type="text" class="form-control"name="customer_last_name" [(ngModel)]="model.customer_last_name">
+    </div>
+    <div class="col-12 col-md-6">
+        <label >Email</label>
+        <input type="text" class="form-control"name="customer_email" [(ngModel)]="model.customer_email">
+    </div>
+
+</form>
