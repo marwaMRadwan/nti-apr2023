@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  classShow = ''
 
+  handleSHowNavbar(){
+    var ele = document.getElementById('navbarSupportedContent') as HTMLElement
+    ele.classList.remove('show')
+    }
 }
